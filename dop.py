@@ -12,20 +12,19 @@ def F(a, b, c, x):
     if a < 0 and x != 0:
         return a*x**2 + b**2*x
     elif a > 0 and x == 0:
-        return math.floor(a) + math.floor(b) + math.floor(c)
+        return math.floor(a) + math.floor(b) + math.floor(c)#если выполняет условие то возвращает сумму округленных значений
     else:
         ac = int(abs(a))
         bc = int(abs(b))
-        cc = int(abs(c))
+        cc = int(abs(c))#производятся операции с абсолютными значениями
         not_ac = ~ac
         and_bc_cc = bc & cc
         or_and = and_bc_cc | not_ac
-        or_vc = or_and | cc
+        or_vc = or_and | cc #побитовые операции
         if or_vc != 0 and (or_and != 0 or cc != 0):
             return a*x**2 + b**2*x
         else:
-            return math.floor(a*x + b/x - c + 1)
-#определяем функцию F, которая принимает значения a, b, c и x и возвращает результат вычисления функции F по заданным правилам.
+            return math.floor(a*x + b/x - c + 1)#возвращается результат выражения 
 
 print("  x      |      F(x) ")
 print("--------------------")
